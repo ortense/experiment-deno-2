@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@internal/": "./internal/",
+    "@lib/": "./lib/",
+    "hono": "npm:hono",
+    "zod": "npm:zod",
+    "@hono/zod-validator": "npm:@hono/zod-validator"
+  },
+  "tasks": {
+    "dev": "deno run --watch --allow-net main.ts",
+    "build": "deno compile --allow-net -o bin/api main.ts",
+    "coverage": "deno test --coverage=coverage/profile && deno coverage coverage/profile",
+    "coverage:report": "deno test --coverage=coverage/profile && deno coverage --lcov --output=coverage/data.lcov && genhtml -o coverage/report coverage/data.lcov"
+  }
+}
