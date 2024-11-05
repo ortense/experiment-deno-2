@@ -6,7 +6,7 @@ const baseTransactionSchema = z.object({
   description: z.string().max(255).nullable().optional().default(null),
 });
 
-const paymentCard = z.object({
+export const paymentCardSchema = z.object({
   number: z.string().min(12).max(19),
   holderName: z.string().max(255),
   expiration: z.string().length(5),
@@ -36,13 +36,13 @@ export const createPayableSchema = basePayableSchema;
 export const creditCardTransactionSchema = baseTransactionSchema.merge(
   z.object({
     method: z.literal("credit_card"),
-    card: paymentCard,
+    card: paymentCardSchema,
   }),
 );
 
 export const debitCardTransactionSchema = baseTransactionSchema.merge(z.object({
   method: z.literal("debit_card"),
-  card: paymentCard,
+  card: paymentCardSchema,
 }));
 
 export const boletoTransactionSchema = baseTransactionSchema.merge(z.object({

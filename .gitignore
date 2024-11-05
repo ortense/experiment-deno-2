@@ -1,3 +1,4 @@
 bin/
 coverage/
+*.sqlite
 .DS_Store

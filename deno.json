@@ -3,12 +3,13 @@
     "@internal/": "./internal/",
     "@lib/": "./lib/",
     "hono": "npm:hono",
+    "sqlite": "https://deno.land/x/sqlite@v3.9.1/mod.ts",
     "zod": "npm:zod",
     "@hono/zod-validator": "npm:@hono/zod-validator"
   },
   "tasks": {
-    "dev": "deno run --watch --allow-net main.ts",
-    "build": "deno compile --allow-net -o bin/api main.ts",
+    "dev": "deno run --watch --allow-net --allow-read=db.sqlite,db.sqlite-journal --allow-write=db.sqlite,db.sqlite-journal main.ts",
+    "build": "deno compile --allow-net --allow-read=db.sqlite,db.sqlite-journal --allow-write=db.sqlite,db.sqlite-journal -o bin/api main.ts",
     "coverage": "deno test --coverage=coverage/profile && deno coverage coverage/profile",
     "coverage:report": "deno test --coverage=coverage/profile && deno coverage --lcov --output=coverage/data.lcov && genhtml -o coverage/report coverage/data.lcov"
   }
