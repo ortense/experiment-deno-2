@@ -2,6 +2,7 @@
   "imports": {
     "@internal/": "./internal/",
     "@lib/": "./lib/",
+    "@std/log": "jsr:@std/log@^0.224.9",
     "hono": "npm:hono",
     "sqlite": "https://deno.land/x/sqlite@v3.9.1/mod.ts",
     "zod": "npm:zod",

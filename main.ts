@@ -3,6 +3,7 @@ import { DB } from "sqlite";
 import { createTransactionRouter } from "@internal/transaction/transaction.router.ts";
 import { createTransactionRepositorySQL } from "@internal/transaction/repository/transaction-sql.ts";
 import { createPayableRepositorySQL } from "@internal/transaction/repository/payable-sql.ts";
+import { loggerMiddleware } from "@lib/logger.ts";
 
 const db = new DB("db.sqlite");
 const app = new Hono();
@@ -15,6 +16,7 @@ const transaction = createTransactionRouter(
   payableRepository,
 );
 
+app.use(loggerMiddleware());
 app.route("/transactions", transaction);
 
 Deno.serve(app.fetch);
