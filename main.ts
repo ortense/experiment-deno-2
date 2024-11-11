@@ -4,6 +4,7 @@ import { createTransactionRouter } from "@internal/transaction/transaction.route
 import { createTransactionRepositorySQL } from "@internal/transaction/repository/transaction-sql.ts";
 import { createPayableRepositorySQL } from "@internal/transaction/repository/payable-sql.ts";
 import { loggerMiddleware } from "@lib/logger.ts";
+import { snakeCaseResponseMiddleware } from "@lib/middleware.ts";
 
 const db = new DB("db.sqlite");
 const app = new Hono();
@@ -17,6 +18,7 @@ const transaction = createTransactionRouter(
 );
 
 app.use(loggerMiddleware());
+app.use(snakeCaseResponseMiddleware);
 app.route("/transactions", transaction);
 
 Deno.serve(app.fetch);

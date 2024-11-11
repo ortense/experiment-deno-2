@@ -1,7 +1,7 @@
 // deno-lint-ignore-file require-await
 import { DB } from "sqlite";
 import {
-  CreateTransactionPayload,
+  CreateTransactionInput,
   CreditCardTransaction,
   isTransactionWithCard,
   PaymentCard,
@@ -54,7 +54,7 @@ export function createTransactionRepositorySQL(
   `);
 
   return {
-    save: withAsyncResult(async (input: CreateTransactionPayload) => {
+    save: withAsyncResult(async (input: CreateTransactionInput) => {
       const id = crypto.randomUUID();
       const card: PaymentCard | undefined =
         (input as CreditCardTransaction).card;

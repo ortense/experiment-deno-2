@@ -21,7 +21,7 @@ describe("Transaction Router", () => {
         method: "credit_card",
         card: {
           number: "1234567812345678",
-          holderName: "John Doe",
+          holder_name: "John Doe",
           expiration: "12/25",
           cvv: "123",
         },
@@ -42,8 +42,10 @@ describe("Transaction Router", () => {
       expect(stored.method).toBe(input.method);
       expect(stored.description).toBe(input.description);
       expect(stored.card).toEqual({
-        ...input.card,
+        holderName: input.card.holder_name,
         number: "**********345678",
+        expiration: input.card.expiration,
+        cvv: input.card.cvv,
       });
     });
 
@@ -57,7 +59,7 @@ describe("Transaction Router", () => {
         method: "credit_card",
         card: {
           number: "1234567812345678",
-          holderName: "John Doe",
+          holder_name: "John Doe",
           expiration: "12/25",
           cvv: "123",
         },
@@ -87,7 +89,7 @@ describe("Transaction Router", () => {
         method: "credit_card",
         card: {
           number: "1234567812345678",
-          holderName: "John Doe",
+          holder_name: "John Doe",
           expiration: "12/25",
           cvv: "123",
         },

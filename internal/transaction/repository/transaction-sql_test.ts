@@ -2,7 +2,7 @@ import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
 import { Spy, spy } from "jsr:@std/testing/mock";
 import {
-  CreateTransactionPayload,
+  CreateTransactionInput,
   TransactionDataRow,
 } from "@internal/transaction/transaction.type.ts";
 import { createTransactionRepositorySQL } from "@internal/transaction/repository/transaction-sql.ts";
@@ -22,7 +22,7 @@ describe("Transaction Repository", () => {
   describe("save", () => {
     it("should execute the correct SQL to save a transaction", async () => {
       const { repository, db } = createMockedRepo();
-      const payload: CreateTransactionPayload = {
+      const payload: CreateTransactionInput = {
         value: 200,
         description: "Test Transaction",
         method: "credit_card",
@@ -48,7 +48,7 @@ describe("Transaction Repository", () => {
         throw new Error("Mocked DB error");
       });
 
-      const payload: CreateTransactionPayload = {
+      const payload: CreateTransactionInput = {
         value: 300,
         description: "Invalid Transaction",
         // deno-lint-ignore no-explicit-any
@@ -140,4 +140,3 @@ describe("Transaction Repository", () => {
     });
   });
 });
-

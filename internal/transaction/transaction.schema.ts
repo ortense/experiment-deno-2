@@ -8,10 +8,13 @@ const baseTransactionSchema = z.object({
 
 export const paymentCardSchema = z.object({
   number: z.string().min(12).max(19),
-  holderName: z.string().max(255),
+  holder_name: z.string().max(255),
   expiration: z.string().length(5),
   cvv: z.string().length(3),
-});
+}).transform(({ holder_name, ...rest }) => ({
+  holderName: holder_name,
+  ...rest,
+}));
 
 export const payableStatusSchema = z.union([
   z.literal("paid"),

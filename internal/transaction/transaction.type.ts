@@ -16,12 +16,13 @@ export type Transaction = z.infer<typeof transactionSchema>;
 export type CreditCardTransaction = z.infer<typeof creditCardTransactionSchema>;
 export type DebitCardTransaction = z.infer<typeof debitCardTransactionSchema>;
 export type BoletoTransaction = z.infer<typeof boletoTransactionSchema>;
-export type CreateTransactionPayload = z.infer<typeof createTransactionSchema>;
+export type CreateTransactionPayload = z.input<typeof createTransactionSchema>;
+export type CreateTransactionInput = z.infer<typeof createTransactionSchema>;
 export type PaymentCard = z.infer<typeof paymentCardSchema>;
 
 export type TransactionRepository = {
   list(): Promise<Result<Transaction[]>>;
-  save(input: CreateTransactionPayload): Promise<Result<Transaction>>;
+  save(input: CreateTransactionInput): Promise<Result<Transaction>>;
   getById(id: string): Promise<Result<Transaction | null>>;
 };
 

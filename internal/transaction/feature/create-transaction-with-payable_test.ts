@@ -4,7 +4,7 @@ import { createTransactinWithPayableFeature } from "@internal/transaction/featur
 import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
 import { createPayableRepositoryInMemory } from "@internal/transaction/repository/payable-in-memory.ts";
 import {
-  CreateTransactionPayload,
+  CreateTransactionInput,
   CreditCardTransaction,
   DebitCardTransaction,
   Payable,
@@ -13,7 +13,7 @@ import {
 import { Failure, Success } from "@lib/result.ts";
 
 describe("Create Transaction With Payable Feature", () => {
-  const validTransactionPayload: CreateTransactionPayload = {
+  const validTransactionPayload: CreateTransactionInput = {
     value: 100,
     description: "Test Transaction",
     method: "credit_card",

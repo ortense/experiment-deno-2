@@ -2,13 +2,13 @@ import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
 import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
 import type {
-  CreateTransactionPayload,
+  CreateTransactionInput,
   Transaction,
 } from "@internal/transaction/transaction.type.ts";
 import type { Failure, Success } from "@lib/result.ts";
 
 describe("In-Memory Transaction Repository", () => {
-  const sampleTransactionPayload: CreateTransactionPayload = {
+  const sampleTransactionPayload: CreateTransactionInput = {
     value: 200,
     description: "Sample Transaction",
     method: "credit_card",

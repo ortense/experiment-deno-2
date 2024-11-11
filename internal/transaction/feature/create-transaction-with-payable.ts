@@ -1,5 +1,5 @@
 import type {
-  CreateTransactionPayload,
+  CreateTransactionInput,
   Payable,
   PayableRepository,
   Transaction,
@@ -28,8 +28,8 @@ const taxRule: Record<Transaction["method"], TaxCalc> = {
 };
 
 const applyCardNumberMask = (
-  input: CreateTransactionPayload,
-): CreateTransactionPayload => {
+  input: CreateTransactionInput,
+): CreateTransactionInput => {
   if (input.method === "boleto") return input;
 
   const { card } = input;
@@ -49,7 +49,7 @@ export function createTransactinWithPayableFeature(
 ) {
   return {
     async execute(
-      input: CreateTransactionPayload,
+      input: CreateTransactionInput,
     ): Promise<Result<Transaction>> {
       const transactionResult = await transactionRepo.save(
         applyCardNumberMask(input),
