@@ -9,7 +9,7 @@ import {
   payableStatusSchema,
   paymentCardSchema,
   transactionSchema,
-} from "@internal/transaction/transaction.schema.ts";
+} from "@module/transaction/transaction.schema.ts";
 import type { Result } from "@lib/result.ts";
 
 export type Transaction = z.infer<typeof transactionSchema>;

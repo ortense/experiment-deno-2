@@ -4,7 +4,7 @@ import type {
   PayableRepository,
   Transaction,
   TransactionRepository,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import { isFailure, type Result } from "@lib/result.ts";
 
 type TaxCalc = (value: number) => Pick<Payable, "status" | "tax" | "total">;

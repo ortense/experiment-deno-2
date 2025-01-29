@@ -8,7 +8,7 @@ import {
   Transaction,
   TransactionDataRow,
   TransactionRepository,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import { withAsyncResult } from "@lib/result.ts";
 
 function mapTransactionRow(row: TransactionDataRow): Transaction {

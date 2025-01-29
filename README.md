@@ -60,7 +60,7 @@ each component to be developed, tested, and maintained independently.
 Example directory layout for a module:
 
 ```
-internal/<module-name>/
+module/<module-name>/
 ├── feature/
 │   └── [descritive-name].ts
 ├── repository/
@@ -74,7 +74,7 @@ This pattern also allows for easy expansion to include new modules in the
 system. For example, to add a user module, the same naming conventions apply:
 
 ```
-internal/user/
+module/user/
 ├── feature/
 │   ├── create-user.ts
 │   ├── change-password.ts
@@ -121,7 +121,7 @@ schema.
 Here is an example of how types are defined base on schemas in this project
 
 ```ts
-// internal/user/user.schema.ts
+// module/user/user.schema.ts
 import { z } from "zod";
 
 export const userSchema = z.object({
@@ -130,9 +130,9 @@ export const userSchema = z.object({
   email: z.string().email(),
 });
 
-// internal/user/user.types.ts
+// module/user/user.types.ts
 import { z } from "zod";
-import { userSchema } from "@internal/user/user.schema.ts";
+import { userSchema } from "@module/user/user.schema.ts";
 
 export type User = z.infer<typeof userSchema>;
 ```
@@ -164,13 +164,13 @@ implement an `in-memory` repository for use in unit testing.
 Example:
 
 ```ts
-// internal/user/user.types.ts
+// module/user/user.types.ts
 export type UserRepository = {
   save(input: CreateTransactionPayload): Promise<Result<User>>;
   getById(id: string): Promise<Result<User | null>>;
 };
 
-// internal/user/repository/in-memory.ts
+// module/user/repository/in-memory.ts
 export function createUserRepositoryInMemory(
   err?: Error,
   initial: User[] = [],
@@ -206,7 +206,7 @@ maintains consistency. This approach allows all features to follow a uniform
 format, making them isolated, and each one has a specific, well-defined purpose.
 As a result, new features can be added easily by following the same model.
 
-Example: `internal/user/feature/create-user.ts`
+Example: `module/user/feature/create-user.ts`
 
 ```ts
 export function createUserFeature(repo: UserRepository) {

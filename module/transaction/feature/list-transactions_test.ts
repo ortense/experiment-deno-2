@@ -1,8 +1,8 @@
 import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
-import { listTransactionFeature } from "@internal/transaction/feature/list-transactions.ts";
-import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
-import { Transaction } from "@internal/transaction/transaction.type.ts";
+import { listTransactionFeature } from "@module/transaction/feature/list-transactions.ts";
+import { createTransactionRepositoryInMemory } from "@module/transaction/repository/transaction-in-memory.ts";
+import { Transaction } from "@module/transaction/transaction.type.ts";
 
 describe("List Transaction Feature", () => {
   it("should list transactions successfully when there are none", async () => {

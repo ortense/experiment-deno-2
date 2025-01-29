@@ -5,8 +5,8 @@ import { DB } from "sqlite";
 import {
   CreatePayablePayload,
   PayableDataRow,
-} from "@internal/transaction/transaction.type.ts";
-import { createPayableRepositorySQL } from "@internal/transaction/repository/payable-sql.ts";
+} from "@module/transaction/transaction.type.ts";
+import { createPayableRepositorySQL } from "@module/transaction/repository/payable-sql.ts";
 
 describe("Payable Repository", () => {
   function createMockedRepo() {

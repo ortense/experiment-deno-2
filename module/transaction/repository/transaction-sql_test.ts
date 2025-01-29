@@ -4,8 +4,8 @@ import { Spy, spy } from "jsr:@std/testing/mock";
 import {
   CreateTransactionInput,
   TransactionDataRow,
-} from "@internal/transaction/transaction.type.ts";
-import { createTransactionRepositorySQL } from "@internal/transaction/repository/transaction-sql.ts";
+} from "@module/transaction/transaction.type.ts";
+import { createTransactionRepositorySQL } from "@module/transaction/repository/transaction-sql.ts";
 import { DB } from "sqlite";
 
 describe("Transaction Repository", () => {

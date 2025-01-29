@@ -5,7 +5,7 @@ import {
   Payable,
   PayableDataRow,
   PayableRepository,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import { withAsyncResult } from "@lib/result.ts";
 
 function mapPayableRow(row: PayableDataRow): Payable {

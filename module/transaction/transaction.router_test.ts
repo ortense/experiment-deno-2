@@ -1,13 +1,13 @@
 import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
-import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
-import { createPayableRepositoryInMemory } from "@internal/transaction/repository/payable-in-memory.ts";
-import { createTransactionRouter } from "@internal/transaction/transaction.router.ts";
+import { createTransactionRepositoryInMemory } from "@module/transaction/repository/transaction-in-memory.ts";
+import { createPayableRepositoryInMemory } from "@module/transaction/repository/payable-in-memory.ts";
+import { createTransactionRouter } from "@module/transaction/transaction.router.ts";
 import {
   CreateTransactionPayload,
   CreditCardTransaction,
   Transaction,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 
 describe("Transaction Router", () => {
   describe("POST /", () => {

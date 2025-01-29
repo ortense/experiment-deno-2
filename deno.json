@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@internal/": "./internal/",
+    "@module/": "./module/",
     "@lib/": "./lib/",
     "@std/log": "jsr:@std/log@^0.224.9",
     "hono": "npm:hono",

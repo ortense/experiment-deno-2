@@ -1,10 +1,10 @@
 import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
-import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
+import { createTransactionRepositoryInMemory } from "@module/transaction/repository/transaction-in-memory.ts";
 import type {
   CreateTransactionInput,
   Transaction,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import type { Failure, Success } from "@lib/result.ts";
 
 describe("In-Memory Transaction Repository", () => {

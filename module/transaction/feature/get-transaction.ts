@@ -1,7 +1,7 @@
 import type {
   Transaction,
   TransactionRepository,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import type { Result } from "@lib/result.ts";
 
 export function getTransactionFeature(repo: TransactionRepository) {

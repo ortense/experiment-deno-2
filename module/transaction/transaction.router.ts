@@ -3,14 +3,14 @@ import { zValidator } from "@hono/zod-validator";
 import type {
   PayableRepository,
   TransactionRepository,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import {
   createTransactionSchema,
   getTransactionSchema,
-} from "@internal/transaction/transaction.schema.ts";
-import { getTransactionFeature } from "@internal/transaction/feature/get-transaction.ts";
-import { listTransactionFeature } from "@internal/transaction/feature/list-transactions.ts";
-import { createTransactinWithPayableFeature } from "@internal/transaction/feature/create-transaction-with-payable.ts";
+} from "@module/transaction/transaction.schema.ts";
+import { getTransactionFeature } from "@module/transaction/feature/get-transaction.ts";
+import { listTransactionFeature } from "@module/transaction/feature/list-transactions.ts";
+import { createTransactinWithPayableFeature } from "@module/transaction/feature/create-transaction-with-payable.ts";
 import { isFailure } from "@lib/result.ts";
 
 export function createTransactionRouter(

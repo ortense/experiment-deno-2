@@ -2,7 +2,7 @@
 import type {
   Transaction,
   TransactionRepository,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import { failure, success } from "@lib/result.ts";
 
 export function createTransactionRepositoryInMemory(

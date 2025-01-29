@@ -1,8 +1,8 @@
 import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
-import { getTransactionFeature } from "@internal/transaction/feature/get-transaction.ts";
-import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
-import type { Transaction } from "@internal/transaction/transaction.type.ts";
+import { getTransactionFeature } from "@module/transaction/feature/get-transaction.ts";
+import { createTransactionRepositoryInMemory } from "@module/transaction/repository/transaction-in-memory.ts";
+import type { Transaction } from "@module/transaction/transaction.type.ts";
 
 describe("Get Transaction Feature", () => {
   it("should retrieve a transaction by ID successfully", async () => {

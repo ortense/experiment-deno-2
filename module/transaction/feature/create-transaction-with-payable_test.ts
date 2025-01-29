@@ -1,15 +1,15 @@
 import { describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
-import { createTransactinWithPayableFeature } from "@internal/transaction/feature/create-transaction-with-payable.ts";
-import { createTransactionRepositoryInMemory } from "@internal/transaction/repository/transaction-in-memory.ts";
-import { createPayableRepositoryInMemory } from "@internal/transaction/repository/payable-in-memory.ts";
+import { createTransactinWithPayableFeature } from "@module/transaction/feature/create-transaction-with-payable.ts";
+import { createTransactionRepositoryInMemory } from "@module/transaction/repository/transaction-in-memory.ts";
+import { createPayableRepositoryInMemory } from "@module/transaction/repository/payable-in-memory.ts";
 import {
   CreateTransactionInput,
   CreditCardTransaction,
   DebitCardTransaction,
   Payable,
   Transaction,
-} from "@internal/transaction/transaction.type.ts";
+} from "@module/transaction/transaction.type.ts";
 import { Failure, Success } from "@lib/result.ts";
 
 describe("Create Transaction With Payable Feature", () => {
